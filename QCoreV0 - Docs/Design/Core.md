@@ -1,0 +1,2 @@
+A core is a single compute instance. Unlike most modern CPUs, a core just has one hardware thread. Each one has its one memory zero-page, call stack and privilege level.
+By default, the core tries to execute the first instruction at address 0 of the ROM.

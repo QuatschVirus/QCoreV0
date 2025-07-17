@@ -1,0 +1,7 @@
+Comments are delimited like in the C family. The Lexer processes them after string literals. This relieves it from having to check whether the comment it found is in a string or not.
+
+## Single-Line comments
+Single-Line comments start with a `//` and continue until the line ends. They may start after any other tokens. The content as read by the Lexer is the whitespace-trimmed version of that. For example, the content of `//     this is a comment      ` would be `this is a comment`. This is not strictly relevant when writing them, except when you plan to use the Lexer to extract the comments in some way.
+
+## Multi-Line comments
+Multi-Line comments start with `/*` and continue until a `*/`. They may start after any tokens, but the closing tag must be the last token in that line. The content as read by the Lexer is a whitepsace-trimmed version of that. You can mark the "zero-indentation" of a line in the comment with `* ` (mind the space, it is not counted and is part of the marker). All whitespaces before it and the marker itself are removed, and everything after the marker including whitespace until the line feed is the content of that line. If the character is not used, all whitespaces are trimmed at the front and end.

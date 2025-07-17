@@ -1,0 +1,3 @@
+The QCoreV0 is a virtual processor designed by myself as an experiment and a platform for a custom machine code, assembly language and assembler and eventually custom high-level programming language and compiler.
+
+While it is heavily inspired by the RISC-V ISA, it will not be compatible for reasons of ... wow, this stuff gets very complicated very fast. So, this will build upon the ideas behind the project, and simplify or change them for my own use. I will also change up some things from them because this is a purely simulated chip, and I can treat myself to some niceties that would make hardware design a lot more complicated 
