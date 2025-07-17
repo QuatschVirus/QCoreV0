@@ -37,9 +37,29 @@ namespace QCoreV0.Common.Values
 			bool isNegative = literal.StartsWith('-');
 			if (isNegative) literal = literal[1..].Trim();
 
-			if (literal.Contains('G') && !isNegative) // Base64, maybe URL-safe
+			if (literal.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
 			{
-				number = new NumberValue(ConversionUtil.FromBase64(literal), isNegative);
+				literal = literal[2..].Trim();
+				if (string.IsNullOrEmpty(literal)) return false;
+				try
+				{
+					number = new NumberValue(Convert.FromHexString(literal), isNegative);
+					return true;
+				}
+				catch (FormatException)
+				{
+					return false;
+				}
+			}
+			else if (literal.StartsWith("0o", StringComparison.OrdinalIgnoreCase))
+			{
+				literal = literal[2..].Trim();
+				if (string.IsNullOrEmpty(literal)) return false;
+				
+			}
+			else
+			{
+				
 			}
 		}
 	}

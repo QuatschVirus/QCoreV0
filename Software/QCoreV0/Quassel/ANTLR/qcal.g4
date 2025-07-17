@@ -12,7 +12,7 @@ GPREGREF: ('x'|'X') (DGT10 | ('0'|'1'|'2') DGT10 | '3' ('0'|'1'));
 CSREGREF: '%' (LWRCASE | UPRCASE)+;
 STRINGLITERAL: '"' (ESCAPEDCHAR | ~('"'|'\\') )* '"';
 CHARLITERAL: '\'' (ESCAPEDCHAR | ~('\''|'\\') ) '\'';
-NUMLITERAL: DGT10+ | '0' ('x'|'X') DGT16+;
+NUMLITERAL: DGT10+ | '0' (('x'|'X') DGT16+ | ('b'|'B') DGT2+ | ('o'|'O') DGT8+);
 IDENTIFIER: (LWRCASE | UPRCASE) (LWRCASE | UPRCASE | DGT10 | '_')*;
 
 SEMICOLON: ';';
@@ -24,6 +24,8 @@ COLON: ':';
 fragment LWRCASE: [a-z];
 fragment UPRCASE: [A-Z];
 fragment DGT10: [0-9];
+fragment DGT8: [0-7];
+fragment DGT2: [01];
 fragment DGT16: [0-9a-fA-F];
 fragment ESCAPEDCHAR: '\\' ('"' | '\'' | '\\' | 'n' | 't' | 'r' | 'b' | 'f' | 'v');
 

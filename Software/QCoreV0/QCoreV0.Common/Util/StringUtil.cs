@@ -18,5 +18,21 @@ namespace QCoreV0.Common.Util
 				return str[..maxLength];
 			return str[..(maxLength - suffix.Length)] + suffix;
 		}
+
+		public static (char highestLower, char highestUpper) AnalyzeCharRange(string str)
+		{
+			if (string.IsNullOrEmpty(str))
+				throw new ArgumentException("Input string cannot be null or empty.", nameof(str));
+			char highestLower = char.MinValue;
+			char highestUpper = char.MinValue;
+			foreach (char c in str)
+			{
+				if (char.IsLower(c) && c > highestLower)
+					highestLower = c;
+				else if (char.IsUpper(c) && c > highestUpper)
+					highestUpper = c;
+			}
+			return (highestLower, highestUpper);
+		}
 	}
 }
