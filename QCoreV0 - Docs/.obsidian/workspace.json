@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design/Registers.md",
+                "file": "Design/Instructions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Registers"
+              "title": "Instructions"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "Registers"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -54,8 +55,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -182,12 +182,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c09f7a1fcbc90064",
+  "active": "2a756fdd70475c3a",
   "lastOpenFiles": [
-    "Design/Memory.md",
     "Design/Instructions.md",
-    "Quassel/Comments.md",
     "Design/Registers.md",
+    "Design/Memory.md",
+    "Quassel/Comments.md",
     "Quassel/Quassel - The Assembler.md",
     "Quassel/Untitled",
     "Design/Core.md",

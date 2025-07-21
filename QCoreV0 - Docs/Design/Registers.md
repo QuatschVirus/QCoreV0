@@ -24,7 +24,8 @@ Indicates whether the result of an arithmetic operation is 0. This is calculated
 
 ### RM - Register Mode
 This register is used to tell the core and programs whether to interpret the corresponding register as signed or unsigned. Each bit controls the mode of the register numbered with its index (e.g. `RM[2]` sets the mode of `x2`, `RM[15]` of `x15`, etc.)
-Writing to this register will not cause side effects. 0 means signed, 1 means unsigned mode. Bit 0 controls whether instructions default to signed or unsigned mode.
+Writing to this register will not cause side effects, meaning the values stored in the register will not be converted to an identical numerical value. 0 means signed, 1 means unsigned mode. Bit 0 controls whether instructions default to signed or unsigned mode.
+
 
 Any instructions that deal with multiple registers will assume the default mode unless **all** involved registers are set to the other mode. When a register in unsigned mode is used in an instruction in signed mode, all values that cannot be represented as a signed 32-bit value are treated as the biggest value that can be represented (`0x7FFF_FFFF` or 2_147_483_647). Conversely, when a register in signed mode is used with an instruction in unsigned mode, all values lower than 0 are treated as 0.
 

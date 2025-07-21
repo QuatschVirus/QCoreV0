@@ -1,4 +1,5 @@
-﻿using QCoreV0.Quassel.Parsing.AST;
+﻿using QCoreV0.Quassel.Core;
+using QCoreV0.Quassel.Parsing.AST;
 using QCoreV0.Quassel.Parsing.AST.Nodes;
 using QCoreV0.Quassel.Parsing.AST.Tokens;
 using System;
@@ -13,7 +14,7 @@ namespace QCoreV0.Quassel.ComponentBuilder.Parameters.RegisterReferences
 	{
 		protected byte registerIndex;
 
-		internal GeneralPurposeRegisterReferenceComponent(SyntaxElement element, CodeSyntaxNode ast) : base(element, ast)
+		internal GeneralPurposeRegisterReferenceComponent(SyntaxElement element, CodeSyntaxNode ast, QuasselManager qm) : base(element, ast, qm)
 		{
 			registerIndex = byte.Parse(element.Content[1..]);
 		}
@@ -21,6 +22,11 @@ namespace QCoreV0.Quassel.ComponentBuilder.Parameters.RegisterReferences
 		public override ulong ComputeMachineCode()
 		{
 			return (ulong)(registerIndex & 0x1F); 
+		}
+
+		public override bool Verify()
+		{
+			return registerIndex < 32;
 		}
 	}
 }

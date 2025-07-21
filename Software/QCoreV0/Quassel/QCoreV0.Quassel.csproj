@@ -19,11 +19,18 @@
 
   <ItemGroup>
     <Folder Include="ANTLR\" />
+    <Folder Include="CLI\" />
     <Folder Include="ComponentBuilder\Statements\Directives\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\QCoreV0.Common\QCoreV0.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="defaults.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

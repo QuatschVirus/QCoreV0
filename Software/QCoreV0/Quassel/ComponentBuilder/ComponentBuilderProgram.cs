@@ -10,6 +10,6 @@ namespace QCoreV0.Quassel.ComponentBuilder
 {
 	public class ComponentBuilderProgram
 	{
-		protected List<ContainerComponent> containers;
+		
 	}
 }

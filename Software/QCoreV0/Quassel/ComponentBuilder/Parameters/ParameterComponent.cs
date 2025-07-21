@@ -1,4 +1,5 @@
-﻿using QCoreV0.Quassel.ComponentBuilder.Parameters.RegisterReferences;
+﻿using QCoreV0.Quassel.ComponentBuilder.Parameters.Literals;
+using QCoreV0.Quassel.ComponentBuilder.Parameters.RegisterReferences;
 using QCoreV0.Quassel.Core;
 using QCoreV0.Quassel.Parsing.AST;
 using QCoreV0.Quassel.Parsing.AST.Nodes;
@@ -21,7 +22,16 @@ namespace QCoreV0.Quassel.ComponentBuilder.Parameters
 
 		public abstract ulong ComputeMachineCode();
 
-		public static ParameterComponent CreateParameterComponent(ParameterSyntaxNode element, CodeSyntaxNode ast)
+		public static string? GetParameterIdentifier(ParameterSyntaxNode element, CodeSyntaxNode ast)
+		{
+			if (element.TryGetChild<IdentifierSyntaxToken>(out var idToken))
+			{
+				return idToken!.Content;
+			}
+			return null;
+		}
+
+		public static ParameterComponent CreateParameterComponent(ParameterSyntaxNode element, CodeSyntaxNode ast, QuasselManager qm)
 		{
 			var pvsn = element.GetChild<ParameterValueSyntaxNode>()!;
 
@@ -29,13 +39,14 @@ namespace QCoreV0.Quassel.ComponentBuilder.Parameters
 			{
 				return regref!.GetChild<SyntaxToken>() switch
 				{
-					GeneralPurposeRegisterReferenceSyntaxToken gprrst => new GeneralPurposeRegisterReferenceComponent(gprrst, ast),
+					GeneralPurposeRegisterReferenceSyntaxToken gprrst => new GeneralPurposeRegisterReferenceComponent(gprrst, ast, qm),
 					_ => throw new NotSupportedException($"Register reference type '{regref.GetChild<SyntaxToken>()?.GetType().Name}' is not supported.")
 				};
 			} else
 			{
 				return pvsn.GetChild<SyntaxToken>() switch
 				{
+					NumberLiteralSyntaxToken nlsn => new NumberLiteralComponent(nlsn, ast, qm),
 					_ => throw new NotSupportedException($"Parameter value type '{pvsn.GetChild<SyntaxToken>()?.GetType().Name}' is not supported.")
 				};
 			}

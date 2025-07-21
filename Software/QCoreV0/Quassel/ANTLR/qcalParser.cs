@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from c:/Users/jonat/source/repos/QCoreV0/Software/QCoreV0/Quassel/ANTLR/qcal.g4 by ANTLR 4.13.1
+// Generated from c:/Users/jonat/Coding/QCoreV0/Software/QCoreV0/Quassel/ANTLR/qcal.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -105,16 +105,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_code; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterCode(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitCode(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitCode(this);
@@ -175,16 +165,6 @@ public partial class qcalParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_code_line; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterCode_line(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitCode_line(this);
-		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
@@ -293,16 +273,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_statement; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitStatement(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
@@ -374,16 +344,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_instruction; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterInstruction(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitInstruction(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitInstruction(this);
@@ -453,16 +413,6 @@ public partial class qcalParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_directive; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterDirective(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitDirective(this);
-		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
@@ -538,16 +488,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_container_start; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterContainer_start(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitContainer_start(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitContainer_start(this);
@@ -617,16 +557,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_container_end; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterContainer_end(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitContainer_end(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitContainer_end(this);
@@ -678,16 +608,6 @@ public partial class qcalParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_parameter_list; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterParameter_list(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitParameter_list(this);
-		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
@@ -793,16 +713,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_parameter; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterParameter(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitParameter(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParameter(this);
@@ -854,16 +764,6 @@ public partial class qcalParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_parameter_identifier; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterParameter_identifier(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitParameter_identifier(this);
-		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
@@ -939,16 +839,6 @@ public partial class qcalParser : Parser {
 		}
 		public override int RuleIndex { get { return RULE_parameter_value; } }
 		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterParameter_value(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitParameter_value(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParameter_value(this);
@@ -1023,16 +913,6 @@ public partial class qcalParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_regref; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.EnterRegref(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IqcalListener typedListener = listener as IqcalListener;
-			if (typedListener != null) typedListener.ExitRegref(this);
-		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IqcalVisitor<TResult> typedVisitor = visitor as IqcalVisitor<TResult>;

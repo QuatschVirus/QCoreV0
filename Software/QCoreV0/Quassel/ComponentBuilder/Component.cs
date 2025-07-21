@@ -23,5 +23,7 @@ namespace QCoreV0.Quassel.ComponentBuilder
 			AST = ast;
 			QuasselManager = qm;
 		}
+
+		public abstract bool Verify();
 	}
 }

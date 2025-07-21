@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from c:/Users/jonat/source/repos/QCoreV0/Software/QCoreV0/Quassel/ANTLR/qcal.g4 by ANTLR 4.13.1
+// Generated from c:/Users/jonat/Coding/QCoreV0/Software/QCoreV0/Quassel/ANTLR/qcal.g4 by ANTLR 4.13.1
 
 // Unreachable code detected
 #pragma warning disable 0162

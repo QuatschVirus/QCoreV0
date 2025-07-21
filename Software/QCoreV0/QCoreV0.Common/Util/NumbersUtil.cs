@@ -21,5 +21,10 @@ namespace QCoreV0.Common.Util
 				throw new ArgumentOutOfRangeException(nameof(width), "Width must be between 1 and 64 bits.");
 			return (1UL << width) - 1;
 		}
+
+		public static byte[] GetBytes(this ulong value)
+		{
+			return BitConverter.GetBytes(value);
+		}
 	}
 }

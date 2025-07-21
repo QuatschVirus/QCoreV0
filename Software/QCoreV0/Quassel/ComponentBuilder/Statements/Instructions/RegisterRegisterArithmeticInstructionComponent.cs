@@ -1,4 +1,5 @@
-﻿using QCoreV0.Quassel.Parsing.AST.Nodes;
+﻿using QCoreV0.Quassel.Core;
+using QCoreV0.Quassel.Parsing.AST.Nodes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,14 @@ namespace QCoreV0.Quassel.ComponentBuilder.Statements.Instructions
 {
 	public class RegisterRegisterArithmeticInstructionComponent : InstructionComponent
 	{
-		public RegisterRegisterArithmeticInstructionComponent(InstructionSyntaxNode element, CodeSyntaxNode ast) : base(element, ast)
+		internal RegisterRegisterArithmeticInstructionComponent(InstructionSyntaxNode element, CodeSyntaxNode ast, QuasselManager qm) : base(element, ast, qm)
 		{
+			
+		}
+
+		public override bool Verify()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

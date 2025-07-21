@@ -1,4 +1,5 @@
-﻿using QCoreV0.Quassel.Core;
+﻿using QCoreV0.Common.Values;
+using QCoreV0.Quassel.Core;
 using QCoreV0.Quassel.Parsing.AST;
 using QCoreV0.Quassel.Parsing.AST.Nodes;
 using QCoreV0.Quassel.Parsing.AST.Tokens;
@@ -12,78 +13,39 @@ namespace QCoreV0.Quassel.ComponentBuilder.Parameters.Literals
 {
 	public class NumberLiteralComponent : ParameterComponent
 	{
-		protected byte[] bytes;
+		protected NumberValue value;
+		protected int? width = null;
+		protected bool? isSigned = null;
 
-		public NumberLiteralComponent(NumberLiteralSyntaxToken element, CodeSyntaxNode ast, QuasselManager qm) : base(element, ast, qm)
+		internal NumberLiteralComponent(NumberLiteralSyntaxToken element, CodeSyntaxNode ast, QuasselManager qm) : base(element, ast, qm)
 		{
-			bytes = 
+			if (!NumberValue.TryGetFromLiteral(element.Content, out value)) throw new ArgumentException("Invalid number literal", nameof(element));
 		}
 
 		public override bool MachineCodeConvertable => true;
 
 		public override ulong ComputeMachineCode()
 		{
-			return value;
+			if (!width.HasValue || !isSigned.HasValue) throw new InvalidOperationException("Width and signedness must be set before computing machine code.");
+			if (value.GetRequiredWidth() > width.Value)
+				throw new InvalidOperationException($"The value's required width ({value.GetRequiredWidth()}) exceeds the specified width ({width.Value}).");
+			return value.GetBitValue(width!.Value, isSigned!.Value);
 		}
 
-		public T GetValue<T>() where T : struct
+		public override bool Verify()
 		{
-			if (typeof(T) == typeof(byte))
-			{
-				return (T)(object)(byte)value;
-			}
-			else if (typeof(T) == typeof(ushort))
-			{
-				return (T)(object)BitConverter.ToUInt16;
-			}
-			else if (typeof(T) == typeof(uint))
-			{
-				return (T)(object)(uint)value;
-			}
-			else if (typeof(T) == typeof(ulong))
-			{
-				return (T)(object)value;
-			}
-			else if (typeof(T) == typeof(sbyte))
-			{
-				return (T)(object)(sbyte)value;
-			}
-			else if (typeof(T) == typeof(short))
-			{
-				return (T)(object)(short)value;
-			}
-			else if (typeof(T) == typeof(int))
-			{
-				return (T)(object)(int)value;
-			}
-			else if (typeof(T) == typeof(long))
-			{
-				return (T)(object)(long)value;
-			}
-			else
-			{
-				throw new NotSupportedException($"Type '{typeof(T).Name}' is not supported for number literals.");
-			}
+			return width.HasValue && isSigned.HasValue && value.GetRequiredWidth() <= width.Value;
 		}
 
-		/// <summary>
-		/// Used to get a bit representation from a string of a number literal. Accounts for negative numbers, put outputs are "packaged" as an unsinged long and use raw bit-by-bit conversion
-		/// </summary>
-		/// <param name="input"></param>
-		/// <returns></returns>
-		public static bool TryGetBytesFromLiteral(string input, out byte[] bytes)
+		internal void SetSigned(bool signed)
 		{
-			input = input.Trim();
-			if (string.IsNullOrEmpty(input))
-			{
-				bytes = [];
-				return false;
-			}
+			isSigned = signed;
+		}
 
-			if (input.StartsWith('-'))
-			{
-
-			}
+		internal void SetWidth(int width)
+		{
+			if (width < 1 || width > 64) throw new ArgumentOutOfRangeException(nameof(width), "Width must be between 1 and 64 bits.");
+			this.width = width;
 		}
 	}
 }

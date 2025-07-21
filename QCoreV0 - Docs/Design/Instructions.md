@@ -142,6 +142,7 @@ Stores a byte from the least significant bits of `rs2` in ROM at the address spe
 
 ##### SDU
 Stores a half word from the least significant bits of `rs2` in RAM at the address specified by adding `rs1` and the immediate value
+
 ##### SDUR
 Stores a half word from the least significant bits of `rs2` in ROM at the address specified by adding `rs1` and the immediate value
 
@@ -151,7 +152,7 @@ Stores a half word from the least significant bits of `rs2` in ROM at the addres
 Pushes the address of the next instruction to the call stack, then sets the program counter to the sum of `rs` and the immediate value shifted left by one to automatically align the address to 16 bit and double the immediate range of the instruction
 
 ##### JMPR
-Pushes the address of the next instruction to the call stack, then adds the sum of `rs` and the immediate value shifted left by one to the program counter
+Pushes the address of the next instruction to the call stack, then **adds** the sum of `rs` and the immediate value shifted left by one to the program counter. This is useful for performing relative jumps. For example, `JMPR x0 4` would jump `(4 << 1) * 8 = 8 * 8 = 64` bits ahead. Placing a colon (`:`) in front of the immediate value will instruct the assembler to accumulate the size of that number of following instructions, useful for jumping ahead a specific number of instructions regardless of their sizes. If `rs` is not specified, `x0` is assumed
 
 #### Control Flow - Register-based Conditional Branch
 ##### BRN
